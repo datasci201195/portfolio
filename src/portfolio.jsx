@@ -528,10 +528,10 @@ function ExperienceTab() {
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             {education.map((edu, i) => (
               <FadeIn key={i} delay={450 + i * 100}>
-                <div className="edu-card" style={{ background: COLORS.white, border: `1px solid ${COLORS.border}`, borderRadius: 10, padding: "20px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+                <div className="edu-card" style={{ background: COLORS.white, border: `1px solid ${COLORS.border}`, borderLeft: `3px solid ${COLORS.accent}`, borderRadius: 10, padding: "20px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
                   <div>
                     <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 17, fontWeight: 400, color: COLORS.text, margin: "0 0 4px" }}>{edu.school}</h3>
-                    <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, color: COLORS.textMuted, margin: 0 }}>{edu.degree}</p>
+                    <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, color: COLORS.accent, margin: 0, fontWeight: 500 }}>{edu.degree}</p>
                     <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: COLORS.textLight, margin: "4px 0 0" }}>{edu.location}</p>
                   </div>
                   <span style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: COLORS.textLight, fontWeight: 500, background: COLORS.bgAlt, padding: "4px 10px", borderRadius: 4, whiteSpace: "nowrap" }}>{edu.period}</span>
@@ -713,6 +713,28 @@ function ResumeTab() {
 }
 
 /* ── BLOG TAB ── */
+/* ── Reading Progress Bar ── */
+function ReadingProgress() {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    let rafId;
+    const update = () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      setProgress(scrolled);
+      rafId = requestAnimationFrame(update);
+    };
+    rafId = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+  return (
+    <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: 4, zIndex: 9999, backgroundColor: COLORS.border }}>
+      <div style={{ height: "100%", width: `${progress}%`, background: `linear-gradient(90deg, ${COLORS.accent}, #4A8B6E)`, borderRadius: "0 3px 3px 0" }} />
+    </div>
+  );
+}
+
 const ArrowLeftIcon = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>);
 
 function BlogTab() {
@@ -724,7 +746,9 @@ function BlogTab() {
   if (activePost) {
     const post = activePost;
     return (
-      <div style={{ maxWidth: 720, margin: "0 auto", padding: "48px 24px 80px" }}>
+      <>
+        <ReadingProgress />
+        <div style={{ maxWidth: 720, margin: "0 auto", padding: "48px 24px 80px" }}>
         <FadeIn>
           <button onClick={() => setActivePost(null)} style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "none", border: "none", color: COLORS.accent, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer", padding: 0, marginBottom: 32 }}>
             <ArrowLeftIcon /> Back to Blog
@@ -788,6 +812,7 @@ function BlogTab() {
           </div>
         </FadeIn>
       </div>
+      </>
     );
   }
 
