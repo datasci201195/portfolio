@@ -14,35 +14,36 @@ const COLORS = {
 };
 
 /* ══════════════════════════════════════════════
-   CDN BRAND ICONS (real logos from Devicon & Simple Icons)
+   BRAND ICONS (Devicon CDN @latest + inline SVG where unavailable)
    ══════════════════════════════════════════════ */
+const DV = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons";
 const cdnIcon = (url) => () => (<img src={url} alt="" width="18" height="18" style={{ display: "block" }} />);
 
 const B = {
-  Python: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"),
-  SQL: () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#CC2927" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>),
-  R: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg"),
-  PySpark: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg"),
-  Azure: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"),
-  AWS: cdnIcon("https://cdn.simpleicons.org/amazonaws/232F3E"),
-  GCP: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"),
-  Microsoft: cdnIcon("https://cdn.simpleicons.org/microsoft"),
-  AzureDataFactory: cdnIcon("https://cdn.simpleicons.org/microsoftazure/0078D4"),
-  Databricks: cdnIcon("https://cdn.simpleicons.org/databricks/FF3621"),
-  IBM: cdnIcon("https://cdn.simpleicons.org/ibm/054ADA"),
-  SQLServer: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg"),
-  PostgreSQL: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"),
-  Oracle: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg"),
-  MySQL: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"),
-  PowerBI: cdnIcon("https://cdn.simpleicons.org/powerbi/F2C811"),
-  Tableau: cdnIcon("https://cdn.simpleicons.org/tableau/E97627"),
-  GitHub: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"),
-  Jira: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"),
-  AzureDevOps: cdnIcon("https://cdn.simpleicons.org/azuredevops/0078D7"),
-  CICD: cdnIcon("https://cdn.simpleicons.org/githubactions/2088FF"),
-  Purview: cdnIcon("https://cdn.simpleicons.org/microsoftazure/0078D4"),
-  UnityCatalog: cdnIcon("https://cdn.simpleicons.org/databricks/FF3621"),
-  Fabric: cdnIcon("https://cdn.simpleicons.org/microsoftazure/0078D4"),
+  Python: cdnIcon(`${DV}/python/python-original.svg`),
+  SQL: cdnIcon(`${DV}/azuresqldatabase/azuresqldatabase-original.svg`),
+  R: cdnIcon(`${DV}/r/r-original.svg`),
+  PySpark: cdnIcon(`${DV}/apachespark/apachespark-original.svg`),
+  Azure: cdnIcon(`${DV}/azure/azure-original.svg`),
+  AWS: cdnIcon(`${DV}/amazonwebservices/amazonwebservices-original-wordmark.svg`),
+  GCP: cdnIcon(`${DV}/googlecloud/googlecloud-original.svg`),
+  Fabric: () => (<svg width="18" height="18" viewBox="0 0 23 23"><path fill="#f35325" d="M1 1h10v10H1z"/><path fill="#81bc06" d="M12 1h10v10H12z"/><path fill="#05a6f0" d="M1 12h10v10H1z"/><path fill="#ffba08" d="M12 12h10v10H12z"/></svg>),
+  AzureDataFactory: cdnIcon(`${DV}/azure/azure-original.svg`),
+  Databricks: cdnIcon(`${DV}/apachespark/apachespark-original.svg`),
+  IBM: () => (<svg width="18" height="18" viewBox="0 0 48 48"><g fill="#054ADA"><rect y="2" width="38" height="5" rx="0.5"/><rect y="10" width="38" height="5" rx="0.5"/><rect x="10" y="18" width="18" height="5" rx="0.5"/><rect x="10" y="26" width="18" height="5" rx="0.5"/><rect y="34" width="38" height="5" rx="0.5"/><rect y="42" width="38" height="5" rx="0.5"/></g></svg>),
+  SQLServer: cdnIcon(`${DV}/microsoftsqlserver/microsoftsqlserver-original.svg`),
+  PostgreSQL: cdnIcon(`${DV}/postgresql/postgresql-original.svg`),
+  Oracle: cdnIcon(`${DV}/oracle/oracle-original.svg`),
+  MySQL: cdnIcon(`${DV}/mysql/mysql-original.svg`),
+  PowerBI: () => (<svg width="18" height="18" viewBox="0 0 24 24"><rect x="13" y="3" width="5" height="18" rx="1.5" fill="#F2C811"/><rect x="7" y="8" width="5" height="13" rx="1.5" fill="#E8A317"/><rect x="1" y="13" width="5" height="8" rx="1.5" fill="#D69B17"/></svg>),
+  Tableau: () => (<svg width="18" height="18" viewBox="0 0 24 24"><path d="M11.5 2v3.5H8V7h3.5v3.5H13V7h3.5V5.5H13V2h-1.5z" fill="#E97627"/><path d="M5.5 8v2.5H3V12h2.5v2.5H7V12h2.5v-1.5H7V8H5.5z" fill="#C72037"/><path d="M17 8v2.5h-2.5V12H17v2.5h1.5V12H21v-1.5h-2.5V8H17z" fill="#5B879B"/><path d="M11.5 13.5V17H8v1.5h3.5V22H13v-3.5h3.5V17H13v-3.5h-1.5z" fill="#5C6692"/></svg>),
+  GitHub: cdnIcon(`${DV}/github/github-original.svg`),
+  Jira: cdnIcon(`${DV}/jira/jira-original.svg`),
+  AzureDevOps: cdnIcon(`${DV}/azure/azure-original.svg`),
+  CICD: cdnIcon(`${DV}/githubactions/githubactions-original.svg`),
+  Purview: cdnIcon(`${DV}/azure/azure-original.svg`),
+  UnityCatalog: cdnIcon(`${DV}/apachespark/apachespark-original.svg`),
+  Microsoft: () => (<svg width="18" height="18" viewBox="0 0 23 23"><path fill="#f35325" d="M1 1h10v10H1z"/><path fill="#81bc06" d="M12 1h10v10H12z"/><path fill="#05a6f0" d="M1 12h10v10H1z"/><path fill="#ffba08" d="M12 12h10v10H12z"/></svg>),
 };
 
 const iconMap = {
