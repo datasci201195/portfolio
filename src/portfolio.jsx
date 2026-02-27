@@ -357,7 +357,7 @@ function NavBar({ activeTab, setActiveTab }) {
             <button key={tab} onClick={() => setActiveTab(tab)} style={{
               padding: "8px 16px", border: "none", background: activeTab === tab ? COLORS.accentLight : "transparent",
               color: activeTab === tab ? COLORS.accent : COLORS.textMuted, fontFamily: "'Source Sans 3', 'Segoe UI', sans-serif",
-              fontSize: 14, fontWeight: activeTab === tab ? 600 : 400, borderRadius: 6, cursor: "pointer", transition: "all 0.2s ease",
+              fontSize: 15, fontWeight: activeTab === tab ? 600 : 400, borderRadius: 6, cursor: "pointer", transition: "all 0.2s ease",
             }}>{tab}</button>
           ))}
         </div>
@@ -399,12 +399,12 @@ function HomeTab({ setActiveTab }) {
           <div style={{ flex: 1, minWidth: 260 }}>
             <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 42, fontWeight: 400, color: COLORS.text, margin: "0 0 4px", letterSpacing: "-0.03em", lineHeight: 1.15 }}>Rupesh Patel</h1>
             <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, color: COLORS.accent, margin: "0 0 6px", fontWeight: 500 }}>Data Engineer</p>
-            <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, color: COLORS.textMuted, margin: "0 0 12px", fontStyle: "italic", lineHeight: 1.5 }}>I build data pipelines that run at 99.2% success rate — from raw data to business decisions.</p>
-            <div style={{ display: "flex", alignItems: "center", gap: 6, color: COLORS.textMuted, fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, marginBottom: 16 }}><LocationIcon /><span>Toronto, Canada</span></div>
+            <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 17, color: COLORS.textMuted, margin: "0 0 12px", fontStyle: "italic", lineHeight: 1.5 }}>I build data pipelines that run at 99.2% success rate — from raw data to business decisions.</p>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, color: COLORS.textMuted, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, marginBottom: 16 }}><LocationIcon /><span>Toronto, Canada</span></div>
             <div className="hero-buttons" style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
-              <a href="https://linkedin.com/in/rupesh-patel" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", background: COLORS.accent, color: "#fff", borderRadius: 6, textDecoration: "none", fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, fontWeight: 500 }}><LinkedInIcon /> LinkedIn</a>
-              <a href="https://github.com/rupesh-patel" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", background: COLORS.text, color: "#fff", borderRadius: 6, textDecoration: "none", fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, fontWeight: 500 }}><GitHubIcon size={20} /> GitHub</a>
-              <a href="mailto:datasci.patel.rupesh@gmail.com" style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", background: COLORS.white, color: COLORS.text, border: `1px solid ${COLORS.border}`, borderRadius: 6, textDecoration: "none", fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, fontWeight: 500 }}><MailIcon /> Email Me</a>
+              <a href="https://linkedin.com/in/rupesh-patel" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", background: COLORS.accent, color: "#fff", borderRadius: 6, textDecoration: "none", fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 500 }}><LinkedInIcon /> LinkedIn</a>
+              <a href="https://github.com/rupesh-patel" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", background: COLORS.text, color: "#fff", borderRadius: 6, textDecoration: "none", fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 500 }}><GitHubIcon size={20} /> GitHub</a>
+              <a href="mailto:datasci.patel.rupesh@gmail.com" style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 16px", background: COLORS.white, color: COLORS.text, border: `1px solid ${COLORS.border}`, borderRadius: 6, textDecoration: "none", fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 500 }}><MailIcon /> Email Me</a>
             </div>
           </div>
         </div>
@@ -417,7 +417,7 @@ function HomeTab({ setActiveTab }) {
               <div style={{ fontFamily: "'DM Serif Display', serif", fontSize: 28, color: COLORS.accent, marginBottom: 4 }}>
                 <AnimatedCounter value={stat.num} suffix={stat.suffix} />
               </div>
-              <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 12.5, color: COLORS.textMuted, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>{stat.label}</div>
+              <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13.5, color: COLORS.textMuted, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>{stat.label}</div>
             </div>
           ))}
         </div>
@@ -426,7 +426,7 @@ function HomeTab({ setActiveTab }) {
       <FadeIn delay={100}>
         <div style={{ marginBottom: 64 }}>
           <SectionTitle>About Me</SectionTitle>
-          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 16.5, lineHeight: 1.75, color: COLORS.textMuted, maxWidth: 720, marginBottom: 28 }}>
+          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, lineHeight: 1.75, color: COLORS.textMuted, maxWidth: 720, marginBottom: 28 }}>
             Microsoft-certified Data Engineer with 5 years of experience designing and maintaining Medallion (Bronze-Silver-Gold) ETL data pipelines using Microsoft Fabric, Azure Data Factory, and IBM DataStage. Passionate about building scalable data infrastructure, enforcing data governance, and enabling data-driven decision-making across organizations.
           </p>
           <div className="value-props-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
@@ -437,8 +437,8 @@ function HomeTab({ setActiveTab }) {
             ].map((item) => (
               <div key={item.title} style={{ background: COLORS.white, border: `1px solid ${COLORS.border}`, borderRadius: 10, padding: "22px 20px" }}>
                 <div style={{ fontSize: 24, marginBottom: 10 }}>{item.icon}</div>
-                <h4 style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14.5, fontWeight: 700, color: COLORS.text, margin: "0 0 8px" }}>{item.title}</h4>
-                <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13.5, lineHeight: 1.65, color: COLORS.textMuted, margin: 0 }}>{item.desc}</p>
+                <h4 style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 16, fontWeight: 700, color: COLORS.text, margin: "0 0 8px" }}>{item.title}</h4>
+                <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, lineHeight: 1.7, color: COLORS.textMuted, margin: 0 }}>{item.desc}</p>
               </div>
             ))}
           </div>
@@ -453,13 +453,13 @@ function HomeTab({ setActiveTab }) {
               <div key={cat.label} className="skills-row" style={{ display: "flex", alignItems: "baseline", gap: 24, padding: "16px 0", borderBottom: i < skillCategories.length - 1 ? `1px solid ${COLORS.border}` : "none", flexWrap: "wrap" }}>
                 <div className="skills-label" style={{ display: "flex", alignItems: "center", gap: 8, width: 230, flexShrink: 0 }}>
                   <span style={{ fontSize: 16 }}>{cat.labelIcon}</span>
-                  <span style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13.5, fontWeight: 700, color: COLORS.accent, textTransform: "uppercase", letterSpacing: "0.06em" }}>{cat.label}</span>
+                  <span style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14.5, fontWeight: 700, color: COLORS.accent, textTransform: "uppercase", letterSpacing: "0.06em" }}>{cat.label}</span>
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 8, flex: 1 }}>
                   {cat.skills.map((name) => {
                     const Icon = iconMap[name];
                     return (
-                      <span key={name} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "5px 14px", background: COLORS.white, border: `1px solid ${COLORS.border}`, borderRadius: 20, fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: COLORS.text, fontWeight: 500 }}>
+                      <span key={name} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "5px 14px", background: COLORS.white, border: `1px solid ${COLORS.border}`, borderRadius: 20, fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, color: COLORS.text, fontWeight: 500 }}>
                         {Icon && <Icon />}
                         {name}
                       </span>
@@ -476,11 +476,11 @@ function HomeTab({ setActiveTab }) {
         <div className="cta-box" style={{ background: `linear-gradient(135deg, ${COLORS.accent}08, ${COLORS.accentLight})`, border: `1px solid ${COLORS.border}`, borderRadius: 12, padding: "32px 36px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 20 }}>
           <div>
             <h3 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 22, fontWeight: 400, color: COLORS.text, margin: "0 0 6px" }}>Want the full story?</h3>
-            <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, color: COLORS.textMuted, margin: 0 }}>Check out my work experience, projects, and download my resume.</p>
+            <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 16, color: COLORS.textMuted, margin: 0 }}>Check out my work experience, projects, and download my resume.</p>
           </div>
           <div className="cta-buttons" style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <button onClick={() => setActiveTab("Experience")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 22px", background: COLORS.accent, color: "#fff", border: "none", borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, fontWeight: 600, cursor: "pointer" }}>Experience <ArrowRightIcon /></button>
-            <button onClick={() => setActiveTab("Resume")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 22px", background: COLORS.white, color: COLORS.text, border: `1px solid ${COLORS.border}`, borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, fontWeight: 600, cursor: "pointer" }}><DownloadIcon /> Resume</button>
+            <button onClick={() => setActiveTab("Experience")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 22px", background: COLORS.accent, color: "#fff", border: "none", borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer" }}>Experience <ArrowRightIcon /></button>
+            <button onClick={() => setActiveTab("Resume")} style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 22px", background: COLORS.white, color: COLORS.text, border: `1px solid ${COLORS.border}`, borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer" }}><DownloadIcon /> Resume</button>
           </div>
         </div>
       </FadeIn>
@@ -509,7 +509,7 @@ function ExperienceTab() {
                       </div>
                       <span style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: COLORS.textLight, fontWeight: 500, background: COLORS.bgAlt, padding: "4px 10px", borderRadius: 4, whiteSpace: "nowrap" }}>{exp.period}</span>
                     </div>
-                    <ul style={{ margin: "12px 0 14px", paddingLeft: 18, fontFamily: "'Source Sans 3', sans-serif", fontSize: 14.5, lineHeight: 1.7, color: COLORS.textMuted }}>
+                    <ul style={{ margin: "12px 0 14px", paddingLeft: 18, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15.5, lineHeight: 1.7, color: COLORS.textMuted }}>
                       {exp.bullets.map((b, j) => (<li key={j} style={{ marginBottom: 6 }}>{b}</li>))}
                     </ul>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
@@ -551,7 +551,7 @@ function ProjectsTab() {
     <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px 80px" }}>
       <FadeIn>
         <SectionTitle>Projects</SectionTitle>
-        <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, color: COLORS.textMuted, marginBottom: 32, marginTop: -16 }}>A selection of data engineering projects I've built and contributed to.</p>
+        <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 16, color: COLORS.textMuted, marginBottom: 32, marginTop: -16 }}>A selection of data engineering projects I've built and contributed to.</p>
       </FadeIn>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 24, marginBottom: 64 }}>
         {projects.map((proj, i) => (
@@ -585,12 +585,12 @@ function ProjectsTab() {
               </div>
               <div style={{ padding: "20px 22px" }}>
                 <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 17, fontWeight: 400, color: COLORS.text, margin: "0 0 10px", lineHeight: 1.3 }}>{proj.title}</h3>
-                <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, lineHeight: 1.65, color: COLORS.textMuted, margin: "0 0 12px" }}>{proj.description}</p>
-                <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: COLORS.accent, fontWeight: 600, margin: "0 0 14px" }}>✦ {proj.highlights}</p>
+                <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, lineHeight: 1.7, color: COLORS.textMuted, margin: "0 0 12px" }}>{proj.description}</p>
+                <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, color: COLORS.accent, fontWeight: 600, margin: "0 0 14px" }}>✦ {proj.highlights}</p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 16 }}>
                   {proj.skills.map((s) => (<span key={s} style={{ padding: "3px 10px", background: COLORS.accentLight, color: COLORS.accent, borderRadius: 4, fontFamily: "'Source Sans 3', sans-serif", fontSize: 12, fontWeight: 600 }}>{s}</span>))}
                 </div>
-                <a href={proj.link} style={{ display: "inline-flex", alignItems: "center", gap: 6, color: COLORS.accent, fontFamily: "'Source Sans 3', sans-serif", fontSize: 13.5, fontWeight: 600, textDecoration: "none" }}><GitHubIcon /> View Project <ExternalLinkIcon /></a>
+                <a href={proj.link} style={{ display: "inline-flex", alignItems: "center", gap: 6, color: COLORS.accent, fontFamily: "'Source Sans 3', sans-serif", fontSize: 14.5, fontWeight: 600, textDecoration: "none" }}><GitHubIcon /> View Project <ExternalLinkIcon /></a>
               </div>
             </div>
           </FadeIn>
@@ -620,8 +620,8 @@ function ProjectsTab() {
               <div style={{ padding: "20px 22px" }}>
                 <span style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 12, fontWeight: 600, color: COLORS.accent, textTransform: "uppercase", letterSpacing: "0.08em" }}>{cert.issuer}</span>
                 <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 16, fontWeight: 400, color: COLORS.text, margin: "6px 0 10px", lineHeight: 1.35 }}>{cert.title}</h3>
-                <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, lineHeight: 1.65, color: COLORS.textMuted, margin: "0 0 16px" }}>{cert.description}</p>
-                <a href={cert.link} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, color: COLORS.accent, fontFamily: "'Source Sans 3', sans-serif", fontSize: 13.5, fontWeight: 600, textDecoration: "none" }}>Verify Credential <ExternalLinkIcon /></a>
+                <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, lineHeight: 1.7, color: COLORS.textMuted, margin: "0 0 16px" }}>{cert.description}</p>
+                <a href={cert.link} target="_blank" rel="noopener noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: 6, color: COLORS.accent, fontFamily: "'Source Sans 3', sans-serif", fontSize: 14.5, fontWeight: 600, textDecoration: "none" }}>Verify Credential <ExternalLinkIcon /></a>
               </div>
             </div>
           </FadeIn>
@@ -638,7 +638,7 @@ function ResumeTab() {
       <FadeIn>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32, flexWrap: "wrap", gap: 16 }}>
           <SectionTitle>Resume</SectionTitle>
-          <button style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 22px", background: COLORS.accent, color: "#fff", border: "none", borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, fontWeight: 600, cursor: "pointer" }}><DownloadIcon /> Download Resume</button>
+          <button style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 22px", background: COLORS.accent, color: "#fff", border: "none", borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer" }}><DownloadIcon /> Download Resume</button>
         </div>
       </FadeIn>
       <FadeIn delay={100}>
@@ -650,7 +650,7 @@ function ResumeTab() {
 
             <div style={{ borderTop: `2px solid ${COLORS.accent}`, paddingTop: 16, marginBottom: 20 }}>
               <h3 style={{ fontSize: 14, fontWeight: 700, color: COLORS.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Profile Summary</h3>
-              <p style={{ fontSize: 13.5, lineHeight: 1.65, color: COLORS.textMuted }}>Microsoft-certified Data Engineer with 5 years of experience designing and maintaining Medallion ETL data pipelines using Microsoft Fabric, Azure Data Factory, and IBM DataStage. Led enterprise data governance initiatives to strengthen data integrity and compliance.</p>
+              <p style={{ fontSize: 15, lineHeight: 1.7, color: COLORS.textMuted }}>Microsoft-certified Data Engineer with 5 years of experience designing and maintaining Medallion ETL data pipelines using Microsoft Fabric, Azure Data Factory, and IBM DataStage. Led enterprise data governance initiatives to strengthen data integrity and compliance.</p>
             </div>
 
             <div style={{ borderTop: `1px solid ${COLORS.border}`, paddingTop: 16, marginBottom: 20 }}>
@@ -726,7 +726,7 @@ function BlogTab() {
     return (
       <div style={{ maxWidth: 720, margin: "0 auto", padding: "48px 24px 80px" }}>
         <FadeIn>
-          <button onClick={() => setActivePost(null)} style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "none", border: "none", color: COLORS.accent, fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, fontWeight: 600, cursor: "pointer", padding: 0, marginBottom: 32 }}>
+          <button onClick={() => setActivePost(null)} style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "none", border: "none", color: COLORS.accent, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer", padding: 0, marginBottom: 32 }}>
             <ArrowLeftIcon /> Back to Blog
           </button>
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
@@ -737,7 +737,7 @@ function BlogTab() {
           <div style={{ display: "flex", alignItems: "center", gap: 12, paddingBottom: 24, borderBottom: `1px solid ${COLORS.border}`, marginBottom: 32 }}>
             <div style={{ width: 40, height: 40, borderRadius: "50%", background: `linear-gradient(135deg, ${COLORS.accent}, #4A8B6E)`, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 14, fontFamily: "'DM Serif Display', serif" }}>RP</div>
             <div>
-              <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, fontWeight: 600, color: COLORS.text }}>Rupesh Patel</div>
+              <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, color: COLORS.text }}>Rupesh Patel</div>
               <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 12.5, color: COLORS.textLight }}>Data Engineer · Toronto</div>
             </div>
           </div>
@@ -769,7 +769,7 @@ function BlogTab() {
             })}
           </article>
           <div style={{ borderTop: `1px solid ${COLORS.border}`, marginTop: 48, paddingTop: 24, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 16 }}>
-            <button onClick={() => setActivePost(null)} style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "none", border: `1px solid ${COLORS.border}`, color: COLORS.text, fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, fontWeight: 600, cursor: "pointer", padding: "8px 18px", borderRadius: 6 }}>
+            <button onClick={() => setActivePost(null)} style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "none", border: `1px solid ${COLORS.border}`, color: COLORS.text, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer", padding: "8px 18px", borderRadius: 6 }}>
               <ArrowLeftIcon /> All Posts
             </button>
             <div style={{ display: "flex", gap: 8 }}>
@@ -813,7 +813,7 @@ function BlogTab() {
                 <span style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 12.5, color: COLORS.textLight }}>{post.date} · {post.readTime}</span>
               </div>
               <h3 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 20, fontWeight: 400, color: COLORS.text, margin: "0 0 8px", lineHeight: 1.3 }}>{post.title}</h3>
-              <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14.5, lineHeight: 1.65, color: COLORS.textMuted, margin: "0 0 12px" }}>{post.excerpt}</p>
+              <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15.5, lineHeight: 1.7, color: COLORS.textMuted, margin: "0 0 12px" }}>{post.excerpt}</p>
               <span style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, fontWeight: 600, color: COLORS.accent, display: "inline-flex", alignItems: "center", gap: 4 }}>Read More <ArrowRightIcon /></span>
             </article>
           </FadeIn>
@@ -829,7 +829,7 @@ function ContactTab() {
     <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px 80px" }}>
       <FadeIn><SectionTitle>Let's Connect</SectionTitle></FadeIn>
       <FadeIn delay={100}>
-        <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 16.5, lineHeight: 1.75, color: COLORS.textMuted, maxWidth: 640, marginBottom: 40 }}>I'm always open to discussing data engineering opportunities, interesting projects, or just connecting with fellow professionals. Feel free to reach out through any of the channels below.</p>
+        <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, lineHeight: 1.75, color: COLORS.textMuted, maxWidth: 640, marginBottom: 40 }}>I'm always open to discussing data engineering opportunities, interesting projects, or just connecting with fellow professionals. Feel free to reach out through any of the channels below.</p>
       </FadeIn>
       <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
         {[
@@ -843,7 +843,7 @@ function ContactTab() {
               <div style={{ width: 44, height: 44, borderRadius: 10, background: `${item.color}12`, display: "flex", alignItems: "center", justifyContent: "center", color: item.color, flexShrink: 0 }}>{item.icon}</div>
               <div>
                 <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 12, fontWeight: 600, color: COLORS.textLight, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 2 }}>{item.label}</div>
-                <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14.5, color: COLORS.text, fontWeight: 500 }}>{item.value}</div>
+                <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15.5, color: COLORS.text, fontWeight: 500 }}>{item.value}</div>
               </div>
             </a>
           </FadeIn>
