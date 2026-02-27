@@ -310,7 +310,7 @@ function SectionTitle({ children }) {
   return (
     <h2 style={{
       fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 28, fontWeight: 400, color: COLORS.text,
-      marginBottom: 32, letterSpacing: "-0.02em", borderBottom: `2px solid ${COLORS.accent}`, paddingBottom: 12, display: "inline-block",
+      marginBottom: 20, letterSpacing: "-0.02em", borderBottom: `2px solid ${COLORS.accent}`, paddingBottom: 12, display: "inline-block",
     }}>{children}</h2>
   );
 }
@@ -426,7 +426,7 @@ function HomeTab({ setActiveTab }) {
       <FadeIn delay={100}>
         <div style={{ marginBottom: 64 }}>
           <SectionTitle>About Me</SectionTitle>
-          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, lineHeight: 1.75, color: COLORS.textMuted, maxWidth: 720, marginBottom: 28 }}>
+          <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, lineHeight: 1.75, color: COLORS.textMuted, maxWidth: 960, marginBottom: 28 }}>
             Microsoft-certified Data Engineer with 5 years of experience designing and maintaining Medallion (Bronze-Silver-Gold) ETL data pipelines using Microsoft Fabric, Azure Data Factory, and IBM DataStage. Passionate about building scalable data infrastructure, enforcing data governance, and enabling data-driven decision-making across organizations.
           </p>
           <div className="value-props-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
@@ -829,7 +829,7 @@ function ContactTab() {
     <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px 80px" }}>
       <FadeIn><SectionTitle>Let's Connect</SectionTitle></FadeIn>
       <FadeIn delay={100}>
-        <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, lineHeight: 1.75, color: COLORS.textMuted, maxWidth: 640, marginBottom: 40 }}>I'm always open to discussing data engineering opportunities, interesting projects, or just connecting with fellow professionals. Feel free to reach out through any of the channels below.</p>
+        <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 18, lineHeight: 1.75, color: COLORS.textMuted, maxWidth: 960, marginBottom: 40 }}>I'm always open to discussing data engineering opportunities, interesting projects, or just connecting with fellow professionals. Feel free to reach out through any of the channels below.</p>
       </FadeIn>
       <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
         {[
