@@ -390,11 +390,8 @@ function HomeTab({ setActiveTab }) {
     <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px 80px" }}>
       <FadeIn>
         <div className="hero-flex" style={{ display: "flex", gap: 40, alignItems: "center", marginBottom: 64, flexWrap: "wrap" }}>
-          <div style={{ width: 140, height: 140, borderRadius: "50%", background: `linear-gradient(135deg, ${COLORS.accent}, #4A8B6E)`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, boxShadow: "0 8px 32px rgba(45,90,61,0.18)", position: "relative", overflow: "hidden" }}>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, color: "rgba(255,255,255,0.85)" }}>
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <span style={{ fontSize: 10, fontFamily: "'Source Sans 3', sans-serif", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", opacity: 0.7 }}>Photo</span>
-            </div>
+          <div style={{ width: 140, height: 140, borderRadius: "50%", background: `linear-gradient(135deg, ${COLORS.accent}, #4A8B6E)`, flexShrink: 0, boxShadow: "0 8px 32px rgba(45,90,61,0.18)", overflow: "hidden" }}>
+            <img src="/headshot.png" alt="Rupesh Patel" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
           <div style={{ flex: 1, minWidth: 260 }}>
             <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 42, fontWeight: 400, color: COLORS.text, margin: "0 0 4px", letterSpacing: "-0.03em", lineHeight: 1.15 }}>Rupesh Patel</h1>
@@ -638,7 +635,7 @@ function ResumeTab() {
       <FadeIn>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32, flexWrap: "wrap", gap: 16 }}>
           <SectionTitle>Resume</SectionTitle>
-          <button style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 22px", background: COLORS.accent, color: "#fff", border: "none", borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer" }}><DownloadIcon /> Download Resume</button>
+          <a href="/resume.pdf" download style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 22px", background: COLORS.accent, color: "#fff", border: "none", borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer", textDecoration: "none" }}><DownloadIcon /> Download Resume</a>
         </div>
       </FadeIn>
       <FadeIn delay={100}>
@@ -713,28 +710,6 @@ function ResumeTab() {
 }
 
 /* ── BLOG TAB ── */
-/* ── Reading Progress Bar ── */
-function ReadingProgress() {
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    let rafId;
-    const update = () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
-      setProgress(scrolled);
-      rafId = requestAnimationFrame(update);
-    };
-    rafId = requestAnimationFrame(update);
-    return () => cancelAnimationFrame(rafId);
-  }, []);
-  return (
-    <div style={{ position: "fixed", top: 0, left: 0, width: "100%", height: 4, zIndex: 9999, backgroundColor: COLORS.border }}>
-      <div style={{ height: "100%", width: `${progress}%`, background: `linear-gradient(90deg, ${COLORS.accent}, #4A8B6E)`, borderRadius: "0 3px 3px 0" }} />
-    </div>
-  );
-}
-
 const ArrowLeftIcon = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>);
 
 function BlogTab() {
@@ -746,9 +721,7 @@ function BlogTab() {
   if (activePost) {
     const post = activePost;
     return (
-      <>
-        <ReadingProgress />
-        <div style={{ maxWidth: 720, margin: "0 auto", padding: "48px 24px 80px" }}>
+      <div style={{ maxWidth: 720, margin: "0 auto", padding: "48px 24px 80px" }}>
         <FadeIn>
           <button onClick={() => setActivePost(null)} style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "none", border: "none", color: COLORS.accent, fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, cursor: "pointer", padding: 0, marginBottom: 32 }}>
             <ArrowLeftIcon /> Back to Blog
@@ -812,7 +785,6 @@ function BlogTab() {
           </div>
         </FadeIn>
       </div>
-      </>
     );
   }
 
