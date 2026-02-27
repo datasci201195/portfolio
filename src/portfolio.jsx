@@ -6,8 +6,8 @@ const COLORS = {
   text: "#1A1A1A",
   textMuted: "#5C5C5C",
   textLight: "#8A8A8A",
-  accent: "#2D5A3D",
-  accentLight: "#E8F0EB",
+  accent: "#6B2D3E",
+  accentLight: "#F5E8EB",
   border: "#E5E3DE",
   white: "#FFFFFF",
   card: "#FFFFFF",
@@ -108,7 +108,7 @@ const projects = [
   {
     title: "Enterprise Data Warehouse with Medallion Architecture",
     image: "", // Add your project image URL here
-    gradient: "linear-gradient(135deg, #1a365d, #2d5a3d)",
+    gradient: "linear-gradient(135deg, #1a365d, #6B2D3E)",
     description: "Architected an enterprise Medallion (Bronze-Silver-Gold) data warehouse on SQL Server, integrating multi-source ERP/CRM data with end-to-end lineage and strong quality controls.",
     skills: ["SQL Server", "T-SQL", "ETL", "Star Schema", "Data Infrastructure"],
     highlights: "Achieved 99.5% data accuracy and sub-second analytics for 100K+ records",
@@ -117,7 +117,7 @@ const projects = [
   {
     title: "ServiceOttawa Data-Mart Pipeline",
     image: "", // Add your project image URL here
-    gradient: "linear-gradient(135deg, #2d5a3d, #4A8B6E)",
+    gradient: "linear-gradient(135deg, #6B2D3E, #8B4A5E)",
     description: "Designed and implemented a star-schema based data-mart for ServiceOttawa using Microsoft Fabric, with production-grade scheduling and monitoring.",
     skills: ["Microsoft Fabric", "Star Schema", "ETL", "Power BI"],
     highlights: "Cut daily refresh time by 45%, pipeline success rate of 99.2%",
@@ -345,7 +345,7 @@ function BackToTop() {
       position: "fixed", bottom: 28, right: 28, zIndex: 200, width: 44, height: 44, borderRadius: "50%",
       background: COLORS.accent, color: "#fff", border: "none", cursor: "pointer",
       display: "flex", alignItems: "center", justifyContent: "center",
-      boxShadow: "0 4px 16px rgba(45,90,61,0.25)", transition: "opacity 0.3s, transform 0.3s",
+      boxShadow: "0 4px 16px rgba(107,45,62,0.25)", transition: "opacity 0.3s, transform 0.3s",
       opacity: show ? 1 : 0, transform: show ? "translateY(0)" : "translateY(10px)",
     }}>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
@@ -399,7 +399,7 @@ function HomeTab({ setActiveTab }) {
     <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px 80px" }}>
       <FadeIn>
         <div className="hero-flex" style={{ display: "flex", gap: 40, alignItems: "center", marginBottom: 64, flexWrap: "wrap" }}>
-          <div style={{ width: 140, height: 140, borderRadius: "50%", background: `linear-gradient(135deg, ${COLORS.accent}, #4A8B6E)`, flexShrink: 0, boxShadow: "0 8px 32px rgba(45,90,61,0.18)", overflow: "hidden" }}>
+          <div style={{ width: 140, height: 140, borderRadius: "50%", background: `linear-gradient(135deg, ${COLORS.accent}, #8B4A5E)`, flexShrink: 0, boxShadow: "0 8px 32px rgba(107,45,62,0.18)", overflow: "hidden" }}>
             <img src="/headshot.png" alt="Rupesh Patel" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
           <div style={{ flex: 1, minWidth: 260 }}>
@@ -563,7 +563,7 @@ function ProjectsTab() {
         {projects.map((proj, i) => (
           <FadeIn key={i} delay={i * 120}>
             <div style={{ background: COLORS.card, border: `1px solid ${COLORS.border}`, borderRadius: 12, overflow: "hidden", height: "100%", transition: "transform 0.25s ease, box-shadow 0.25s ease", cursor: "pointer" }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(45,90,61,0.12)"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(107,45,62,0.12)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
             >
               <div style={{ height: 180, background: proj.gradient, position: "relative", display: "flex", alignItems: "flex-end", padding: 20 }}>
@@ -607,10 +607,10 @@ function ProjectsTab() {
         {certifications.map((cert, i) => (
           <FadeIn key={i} delay={450 + i * 120}>
             <div style={{ background: COLORS.card, border: `1px solid ${COLORS.border}`, borderRadius: 12, overflow: "hidden", transition: "transform 0.25s ease, box-shadow 0.25s ease", cursor: "pointer" }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(45,90,61,0.12)"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(107,45,62,0.12)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
             >
-              <div style={{ height: 160, background: "linear-gradient(135deg, #0078D4, #2D5A3D)", position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ height: 160, background: "linear-gradient(135deg, #0078D4, #6B2D3E)", position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 {cert.image ? (
                   <>
                     <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${cert.image})`, backgroundSize: "cover", backgroundPosition: "center" }} />
@@ -683,7 +683,7 @@ function BlogTab() {
           </div>
           <h1 style={{ fontFamily: "'DM Serif Display', Georgia, serif", fontSize: 36, fontWeight: 400, color: COLORS.text, margin: "0 0 24px", lineHeight: 1.25, letterSpacing: "-0.02em" }}>{post.title}</h1>
           <div style={{ display: "flex", alignItems: "center", gap: 12, paddingBottom: 24, borderBottom: `1px solid ${COLORS.border}`, marginBottom: 32 }}>
-            <div style={{ width: 40, height: 40, borderRadius: "50%", background: `linear-gradient(135deg, ${COLORS.accent}, #4A8B6E)`, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 14, fontFamily: "'DM Serif Display', serif" }}>RP</div>
+            <div style={{ width: 40, height: 40, borderRadius: "50%", background: `linear-gradient(135deg, ${COLORS.accent}, #8B4A5E)`, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 14, fontFamily: "'DM Serif Display', serif" }}>RP</div>
             <div>
               <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 15, fontWeight: 600, color: COLORS.text }}>Rupesh Patel</div>
               <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 12.5, color: COLORS.textLight }}>Data Engineer · Toronto</div>
@@ -702,7 +702,7 @@ function BlogTab() {
                     {block.src ? (
                       <img src={block.src} alt={block.alt || ""} style={{ width: "100%", borderRadius: 10, border: `1px solid ${COLORS.border}` }} />
                     ) : (
-                      <div style={{ width: "100%", height: 260, borderRadius: 10, background: "linear-gradient(135deg, #0078D4, #2D5A3D)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <div style={{ width: "100%", height: 260, borderRadius: 10, background: "linear-gradient(135deg, #0078D4, #6B2D3E)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, color: "rgba(255,255,255,0.85)" }}>
                           <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                           <span style={{ fontSize: 10, fontFamily: "'Source Sans 3', sans-serif", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", opacity: 0.7 }}>Blog Image</span>
@@ -753,7 +753,7 @@ function BlogTab() {
         {filtered.map((post, i) => (
           <FadeIn key={post.id} delay={i * 100}>
             <article onClick={() => { setActivePost(post); window.scrollTo(0, 0); }} style={{ background: COLORS.card, border: `1px solid ${COLORS.border}`, borderRadius: 12, padding: "24px 28px", cursor: "pointer", transition: "border-color 0.2s, box-shadow 0.2s" }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = COLORS.accent + "60"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(45,90,61,0.08)"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.borderColor = COLORS.accent + "60"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(107,45,62,0.08)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.borderColor = COLORS.border; e.currentTarget.style.boxShadow = "none"; }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 10 }}>
@@ -782,7 +782,7 @@ function ContactTab() {
       <div className="contact-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 20 }}>
         {[
           { icon: <MailIcon />, label: "Email", value: "datasci.patel.rupesh@gmail.com", href: "mailto:datasci.patel.rupesh@gmail.com", color: COLORS.accent },
-          { icon: <PhoneIcon />, label: "Phone", value: "437-245-8062", href: "tel:4372458062", color: "#4A8B6E" },
+          { icon: <PhoneIcon />, label: "Phone", value: "437-245-8062", href: "tel:4372458062", color: "#8B4A5E" },
           { icon: <LinkedInIcon />, label: "LinkedIn", value: "linkedin.com/in/rupesh-patel", href: "https://linkedin.com/in/rupesh-patel", color: "#0A66C2" },
           { icon: <GitHubIcon />, label: "GitHub", value: "github.com/rupesh-patel", href: "https://github.com/rupesh-patel", color: COLORS.text },
         ].map((item, i) => (
