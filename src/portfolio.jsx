@@ -14,37 +14,45 @@ const COLORS = {
 };
 
 /* ══════════════════════════════════════════════
-   INLINE SVG BRAND ICONS (no external deps)
+   CDN BRAND ICONS (real logos from Devicon & Simple Icons)
    ══════════════════════════════════════════════ */
+const cdnIcon = (url) => () => (<img src={url} alt="" width="18" height="18" style={{ display: "block" }} />);
+
 const B = {
-  Python: () => (<svg width="18" height="18" viewBox="0 0 256 255"><defs><linearGradient id="pa" x1="12.96%" y1="12.04%" x2="79.64%" y2="78.01%"><stop offset="0%" stopColor="#387EB8"/><stop offset="100%" stopColor="#366994"/></linearGradient><linearGradient id="pb" x1="19.13%" y1="20.58%" x2="90.8%" y2="88.16%"><stop offset="0%" stopColor="#FFE052"/><stop offset="100%" stopColor="#FFC331"/></linearGradient></defs><path d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 1 1 0 22.26 11.12 11.12 0 0 1 0-22.26z" fill="url(#pa)"/><path d="M128.757 254.126c64.832 0 60.784-28.115 60.784-28.115l-.072-29.127H127.6v-8.745h86.441s41.486 4.705 41.486-60.712c0-65.416-36.21-63.096-36.21-63.096h-21.61v30.355s1.165 36.21-35.632 36.21h-61.362s-34.475-.557-34.475 33.32v56.013s-5.235 33.897 62.518 33.897zm34.114-19.586a11.12 11.12 0 1 1 0-22.261 11.12 11.12 0 0 1 0 22.261z" fill="url(#pb)"/></svg>),
-  SQL: () => (<svg width="18" height="18" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#CC2927"/><text x="12" y="16" textAnchor="middle" fill="#fff" fontSize="9.5" fontWeight="800" fontFamily="Arial,sans-serif">SQL</text></svg>),
-  R: () => (<svg width="18" height="18" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#276DC3"/><text x="32" y="44" textAnchor="middle" fill="#fff" fontSize="36" fontWeight="700" fontFamily="serif">R</text></svg>),
-  PySpark: () => (<svg width="18" height="18" viewBox="0 0 256 256"><path d="M128 0L8 72v112l120 72 120-72V72L128 0z" fill="#E25A1C"/><path d="M128 36l-84 50v100l84 50 84-50V86l-84-50z" fill="#fff" fillOpacity="0.25"/><path d="M128 72l-48 28v56l48 28 48-28v-56l-48-28z" fill="#fff"/></svg>),
-  Azure: () => (<svg width="18" height="18" viewBox="0 0 96 96"><path d="M33.338 6.544h26.038l-27.03 80.455a4.152 4.152 0 0 1-3.933 2.824H8.149a4.145 4.145 0 0 1-3.928-5.47L29.404 9.368a4.152 4.152 0 0 1 3.934-2.825z" fill="#0078D4"/><path d="M71.175 60.261H41.29a1.911 1.911 0 0 0-1.305 3.309l26.532 24.762a4.15 4.15 0 0 0 2.834 1.114h21.381z" fill="#0078D4" fillOpacity="0.7"/><path d="M33.338 6.544a4.118 4.118 0 0 0-3.943 2.879L4.252 84.168a4.143 4.143 0 0 0 3.908 5.654h21.073a4.44 4.44 0 0 0 3.41-2.9l5.014-14.777 17.91 16.705a4.237 4.237 0 0 0 2.666.972h21.37l-9.26-30.56-31.581-.001L59.308 6.544z" fill="#0078D4"/><path d="M66.595 9.364a4.145 4.145 0 0 0-3.928-2.82H33.648a4.146 4.146 0 0 1 3.928 2.82l25.184 75.08a4.146 4.146 0 0 1-3.928 5.472h29.02a4.146 4.146 0 0 0 3.927-5.472z" fill="#0078D4" fillOpacity="0.7"/></svg>),
-  AWS: () => (<svg width="18" height="18" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#232F3E"/><path d="M18 36c0 0 2.5 3 8.5 3s9-3.5 9-3.5" stroke="#FF9900" strokeWidth="2.5" fill="none" strokeLinecap="round"/><path d="M38 33l3.5 3.5L48 30" stroke="#FF9900" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/><text x="32" y="27" textAnchor="middle" fill="#fff" fontSize="12" fontWeight="700" fontFamily="Arial">AWS</text></svg>),
-  GCP: () => (<svg width="18" height="18" viewBox="0 0 256 206"><path d="M170.252 56.819l22.253-22.253 1.483-9.37C153.437-11.677 88.976-7.496 52.42 33.92 42.267 45.423 34.734 59.764 30.717 74.573l7.97-1.123 44.505-7.34 3.436-3.513c19.797-21.742 53.27-24.667 76.128-6.168l7.496.39z" fill="#EA4335"/><path d="M224.205 73.918a100.249 100.249 0 0 0-30.217-48.722l-31.232 31.232a55.515 55.515 0 0 1 20.379 44.037v5.544c15.351 0 27.797 12.446 27.797 27.797s-12.446 27.573-27.797 27.573h-55.671l-5.544 5.622v33.34l5.544 5.544h55.671c39.93.311 72.553-31.494 72.864-71.424a72.303 72.303 0 0 0-31.794-60.543z" fill="#4285F4"/><path d="M72.008 205.866h55.594v-44.505H72.008a27.344 27.344 0 0 1-11.399-2.496l-7.886 2.418-22.408 22.253-1.952 7.574c12.567 9.489 27.96 14.756 43.645 14.756z" fill="#34A853"/><path d="M72.008 61.426C32.078 61.737-.545 94.669.078 134.599a72.303 72.303 0 0 0 28.285 56.511l32.246-32.246c-13.894-6.323-20.064-22.644-13.741-36.538a27.797 27.797 0 0 1 36.538-13.741l32.246-32.246A72.224 72.224 0 0 0 72.008 61.426z" fill="#FBBC05"/></svg>),
-  Microsoft: () => (<svg width="18" height="18" viewBox="0 0 23 23"><path fill="#f35325" d="M1 1h10v10H1z"/><path fill="#81bc06" d="M12 1h10v10H12z"/><path fill="#05a6f0" d="M1 12h10v10H1z"/><path fill="#ffba08" d="M12 12h10v10H12z"/></svg>),
-  IBM: () => (<svg width="18" height="18" viewBox="0 0 65 26"><g fill="#054ADA"><path d="M0 0h19.3v2.6H0zM0 5.2h19.3v2.6H0zM5.2 10.4h8.9v2.6H5.2zM5.2 15.6h8.9v2.6H5.2zM0 20.8h19.3v2.6H0zM0 26h19.3v2.6H0z" transform="scale(0.65)"/><path d="M22 0h12.5c4.1 0 7.4 1.2 7.4 5.2 0 2.2-1.2 3.9-3.2 4.7v.1c2.6.6 4.1 2.6 4.1 5.3 0 4.4-3.6 5.9-7.5 5.9H22V0zm5.2 8.8h5.6c1.9 0 3.3-.8 3.3-2.8s-1.6-2.6-3.5-2.6h-5.4v5.4zm0 9h6c2 0 3.6-.9 3.6-3.1 0-2.3-1.5-3.1-3.6-3.1h-6v6.2z" transform="scale(0.65)"/><path d="M47.5 0h5.7l5.5 14.7h.1L64.3 0H70v21.2h-4.7V7.1h-.1l-5.1 14.1h-3.3L51.7 7.1h-.1v14.1h-4.1V0z" transform="scale(0.65)"/></g></svg>),
-  PostgreSQL: () => (<svg width="18" height="18" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#336791"/><text x="32" y="43" textAnchor="middle" fill="#fff" fontSize="28" fontWeight="700" fontFamily="serif">P</text></svg>),
-  Oracle: () => (<svg width="18" height="18" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#F80000"/><text x="32" y="38" textAnchor="middle" fill="#fff" fontSize="14" fontWeight="700" fontFamily="Arial,sans-serif">ORA</text></svg>),
-  MySQL: () => (<svg width="18" height="18" viewBox="0 0 64 64"><circle cx="32" cy="32" r="30" fill="#4479A1"/><text x="32" y="28" textAnchor="middle" fill="#fff" fontSize="10" fontWeight="700" fontFamily="Arial">My</text><text x="32" y="44" textAnchor="middle" fill="#F29111" fontSize="13" fontWeight="800" fontFamily="Arial">SQL</text></svg>),
-  GitHub: () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="#181717"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>),
-  Jira: () => (<svg width="18" height="18" viewBox="0 0 256 256"><path d="M244.658 0H121.707a55.502 55.502 0 0 0 55.502 55.502h22.649V77.37c.02 30.625 24.84 55.447 55.464 55.502V11.344A11.347 11.347 0 0 0 244.658 0z" fill="#2684FF"/><path d="M183.822 61.262H60.872c.019 30.625 24.839 55.447 55.466 55.502h22.649v21.868c.02 30.597 24.798 55.408 55.395 55.502V72.606a11.347 11.347 0 0 0-10.56-11.344z" fill="#2684FF" fillOpacity="0.75"/><path d="M122.951 122.489H0c0 30.653 24.85 55.502 55.502 55.502h22.72v21.868c.02 30.597 24.798 55.408 55.396 55.502V133.833a11.347 11.347 0 0 0-10.667-11.344z" fill="#2684FF" fillOpacity="0.5"/></svg>),
-  CICD: () => (<svg width="18" height="18" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#2088FF"/><path d="M16 32a16 16 0 1 1 32 0 16 16 0 0 1-32 0z" fill="none" stroke="#fff" strokeWidth="3"/><path d="M32 20v12l8 8" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round"/><path d="M24 12l-4-4M40 12l4-4M24 52l-4 4M40 52l4 4" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"/></svg>),
-  SQLServer: () => (<svg width="18" height="18" viewBox="0 0 64 64"><rect width="64" height="64" rx="8" fill="#CC2927"/><text x="32" y="25" textAnchor="middle" fill="#fff" fontSize="10" fontWeight="700" fontFamily="Arial">SQL</text><text x="32" y="45" textAnchor="middle" fill="#fff" fontSize="8" fontWeight="500" fontFamily="Arial">Server</text></svg>),
-  Tableau: () => (<svg width="18" height="18" viewBox="0 0 60 60"><path d="M29 6v9h-8v3.5h8v9h3.8v-9h8v-3.5h-8V6z" fill="#E97627"/><path d="M14 20v6.5H7.5V30H14v6.5h3v-6.5h6.5v-3.5H17V20z" fill="#C72037"/><path d="M44 20v6.5h-6.5V30H44v6.5h3v-6.5h6.5v-3.5H47V20z" fill="#5B879B"/><path d="M29 33v9h-8v3.5h8v9h3.8v-9h8v-3.5h-8V33z" fill="#5C6692"/></svg>),
-  PowerBI: () => (<svg width="18" height="18" viewBox="0 0 48 48"><rect width="48" height="48" rx="6" fill="#F2C811"/><rect x="10" y="24" width="7" height="16" rx="1.5" fill="#fff"/><rect x="20" y="16" width="7" height="24" rx="1.5" fill="#fff"/><rect x="30" y="8" width="7" height="32" rx="1.5" fill="#fff"/></svg>),
+  Python: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"),
+  SQL: () => (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#CC2927" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>),
+  R: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg"),
+  PySpark: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg"),
+  Azure: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg"),
+  AWS: cdnIcon("https://cdn.simpleicons.org/amazonaws/232F3E"),
+  GCP: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg"),
+  Microsoft: cdnIcon("https://cdn.simpleicons.org/microsoft"),
+  AzureDataFactory: cdnIcon("https://cdn.simpleicons.org/microsoftazure/0078D4"),
+  Databricks: cdnIcon("https://cdn.simpleicons.org/databricks/FF3621"),
+  IBM: cdnIcon("https://cdn.simpleicons.org/ibm/054ADA"),
+  SQLServer: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg"),
+  PostgreSQL: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"),
+  Oracle: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg"),
+  MySQL: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"),
+  PowerBI: cdnIcon("https://cdn.simpleicons.org/powerbi/F2C811"),
+  Tableau: cdnIcon("https://cdn.simpleicons.org/tableau/E97627"),
+  GitHub: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"),
+  Jira: cdnIcon("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg"),
+  AzureDevOps: cdnIcon("https://cdn.simpleicons.org/azuredevops/0078D7"),
+  CICD: cdnIcon("https://cdn.simpleicons.org/githubactions/2088FF"),
+  Purview: cdnIcon("https://cdn.simpleicons.org/microsoftazure/0078D4"),
+  UnityCatalog: cdnIcon("https://cdn.simpleicons.org/databricks/FF3621"),
+  Fabric: cdnIcon("https://cdn.simpleicons.org/microsoftazure/0078D4"),
 };
 
 const iconMap = {
   "Python": B.Python, "SQL": B.SQL, "R": B.R, "PySpark": B.PySpark,
   "Azure": B.Azure, "AWS": B.AWS, "GCP": B.GCP,
-  "Microsoft Fabric": B.Microsoft, "Azure Data Factory": B.Azure, "Azure Databricks": B.Azure,
+  "Microsoft Fabric": B.Fabric, "Azure Data Factory": B.AzureDataFactory, "Azure Databricks": B.Databricks,
   "IBM DataStage": B.IBM, "SQL Server": B.SQLServer, "PostgreSQL": B.PostgreSQL,
   "Oracle": B.Oracle, "MySQL": B.MySQL, "IBM Knowledge Catalog": B.IBM,
-  "Azure Purview": B.Azure, "Unity Catalog": B.Azure, "Power BI": B.PowerBI,
-  "Tableau": B.Tableau, "Azure DevOps": B.Azure, "Git & GitHub": B.GitHub,
+  "Azure Purview": B.Purview, "Unity Catalog": B.UnityCatalog, "Power BI": B.PowerBI,
+  "Tableau": B.Tableau, "Azure DevOps": B.AzureDevOps, "Git & GitHub": B.GitHub,
   "CI/CD": B.CICD, "Jira": B.Jira,
 };
 
