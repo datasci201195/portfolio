@@ -639,70 +639,12 @@ function ResumeTab() {
         </div>
       </FadeIn>
       <FadeIn delay={100}>
-        <div style={{ background: COLORS.white, border: `1px solid ${COLORS.border}`, borderRadius: 12, padding: 40, boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
-          <div style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-            <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 28, fontWeight: 400, color: COLORS.text, margin: "0 0 4px", textAlign: "center" }}>Rupesh Patel</h2>
-            <p style={{ textAlign: "center", fontSize: 13, color: COLORS.textMuted, margin: "0 0 6px" }}>Toronto, ON · datasci.patel.rupesh@gmail.com · 437-245-8062</p>
-            <p style={{ textAlign: "center", fontSize: 13, color: COLORS.accent, margin: "0 0 24px" }}>linkedin.com/in/rupesh-patel · github.com/rupesh-patel</p>
-
-            <div style={{ borderTop: `2px solid ${COLORS.accent}`, paddingTop: 16, marginBottom: 20 }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: COLORS.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Profile Summary</h3>
-              <p style={{ fontSize: 15, lineHeight: 1.7, color: COLORS.textMuted }}>Microsoft-certified Data Engineer with 5 years of experience designing and maintaining Medallion ETL data pipelines using Microsoft Fabric, Azure Data Factory, and IBM DataStage. Led enterprise data governance initiatives to strengthen data integrity and compliance.</p>
-            </div>
-
-            <div style={{ borderTop: `1px solid ${COLORS.border}`, paddingTop: 16, marginBottom: 20 }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: COLORS.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>Experience</h3>
-              {experiences.map((exp, i) => (
-                <div key={i} style={{ marginBottom: 16 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
-                    <strong style={{ fontSize: 13.5, color: COLORS.text }}>{exp.role} — {exp.company}</strong>
-                    <span style={{ fontSize: 12.5, color: COLORS.textLight }}>{exp.period}</span>
-                  </div>
-                  <p style={{ fontSize: 12.5, color: COLORS.textLight, margin: "2px 0 6px" }}>{exp.location}</p>
-                  <ul style={{ margin: 0, paddingLeft: 18, fontSize: 13, lineHeight: 1.65, color: COLORS.textMuted }}>
-                    {exp.bullets.map((b, j) => (<li key={j} style={{ marginBottom: 3 }}>{b}</li>))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ borderTop: `1px solid ${COLORS.border}`, paddingTop: 16, marginBottom: 20 }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: COLORS.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>Education</h3>
-              {education.map((edu, i) => (
-                <div key={i} style={{ marginBottom: 10 }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
-                    <strong style={{ fontSize: 13.5, color: COLORS.text }}>{edu.school}</strong>
-                    <span style={{ fontSize: 12.5, color: COLORS.textLight }}>{edu.period}</span>
-                  </div>
-                  <p style={{ fontSize: 12.5, color: COLORS.textMuted, margin: "2px 0 0" }}>{edu.degree}</p>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ borderTop: `1px solid ${COLORS.border}`, paddingTop: 16, marginBottom: 20 }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: COLORS.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>Certifications</h3>
-              {certifications.map((cert, i) => (
-                <div key={i} style={{ marginBottom: 8 }}>
-                  <strong style={{ fontSize: 13.5, color: COLORS.text }}>{cert.title}</strong>
-                  <span style={{ fontSize: 12.5, color: COLORS.textLight, marginLeft: 8 }}>— {cert.issuer}</span>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ borderTop: `1px solid ${COLORS.border}`, paddingTop: 16 }}>
-              <h3 style={{ fontSize: 14, fontWeight: 700, color: COLORS.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 10 }}>Technical Skills</h3>
-              <p style={{ fontSize: 13, lineHeight: 1.8, color: COLORS.textMuted }}>
-                <strong style={{ color: COLORS.text }}>Languages:</strong> Python, SQL, R, PySpark &nbsp;·&nbsp;
-                <strong style={{ color: COLORS.text }}>Cloud & Data:</strong> Azure, AWS, GCP, Microsoft Fabric, Azure Data Factory, Databricks, IBM DataStage &nbsp;·&nbsp;
-                <strong style={{ color: COLORS.text }}>Databases:</strong> SQL Server, PostgreSQL, Oracle, MySQL &nbsp;·&nbsp;
-                <strong style={{ color: COLORS.text }}>Governance:</strong> IBM Knowledge Catalog, Azure Purview, Unity Catalog &nbsp;·&nbsp;
-                <strong style={{ color: COLORS.text }}>Visualization:</strong> Power BI, Tableau &nbsp;·&nbsp;
-                <strong style={{ color: COLORS.text }}>DevOps:</strong> Azure DevOps, Git/GitHub, CI/CD, Jira
-              </p>
-            </div>
-
-            <p style={{ textAlign: "center", fontSize: 13, color: COLORS.textLight, fontStyle: "italic", marginTop: 32 }}>— Full resume available for download above —</p>
-          </div>
+        <div style={{ background: COLORS.white, border: `1px solid ${COLORS.border}`, borderRadius: 12, overflow: "hidden", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
+          <iframe
+            src="/resume.pdf"
+            title="Rupesh Patel Resume"
+            style={{ width: "100%", height: 900, border: "none" }}
+          />
         </div>
       </FadeIn>
     </div>
