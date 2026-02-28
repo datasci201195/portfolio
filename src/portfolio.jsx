@@ -663,11 +663,12 @@ function ResumeTab() {
 /* ── BLOG TAB ── */
 const ArrowLeftIcon = () => (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>);
 
-function BlogTab() {
+function BlogTab({ blogPostId, setBlogPostId }) {
   const [filter, setFilter] = useState("All");
-  const [activePost, setActivePost] = useState(null);
   const categories = ["All", "Technical", "Tutorials & Guides", "Career & Life"];
   const filtered = filter === "All" ? blogPosts : blogPosts.filter((p) => p.category === filter);
+  const activePost = blogPostId ? blogPosts.find(p => p.id === blogPostId) : null;
+  const setActivePost = (post) => setBlogPostId(post ? post.id : null);
 
   if (activePost) {
     const post = activePost;
@@ -827,23 +828,56 @@ function Footer() {
 
 /* ── MAIN APP ── */
 export default function Portfolio() {
-  const [activeTab, setActiveTab] = useState("Home");
-  useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [activeTab]);
+  const parseHash = () => {
+    const hash = window.location.hash.slice(1) || "home";
+    const parts = hash.split("/");
+    const tabMap = { home: "Home", experience: "Experience", projects: "Projects", resume: "Resume", blog: "Blog", contact: "Contact" };
+    const tab = tabMap[parts[0]] || "Home";
+    const postId = parts[0] === "blog" && parts[1] ? parts[1] : null;
+    return { tab, postId };
+  };
+
+  const initial = parseHash();
+  const [activeTab, setActiveTab] = useState(initial.tab);
+  const [blogPostId, setBlogPostId] = useState(initial.postId);
+
+  const navigate = (tab, postId = null) => {
+    const slug = tab.toLowerCase();
+    const hash = postId ? `${slug}/${postId}` : slug;
+    window.location.hash = hash;
+    setActiveTab(tab);
+    setBlogPostId(postId);
+  };
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const { tab, postId } = parseHash();
+      setActiveTab(tab);
+      setBlogPostId(postId);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
+  useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [activeTab, blogPostId]);
+
+  const handleSetActiveTab = (tab) => navigate(tab);
+  const handleSetBlogPost = (postId) => navigate("Blog", postId);
+
   const renderTab = () => {
     switch (activeTab) {
-      case "Home": return <HomeTab setActiveTab={setActiveTab} />;
+      case "Home": return <HomeTab setActiveTab={handleSetActiveTab} />;
       case "Experience": return <ExperienceTab />;
       case "Projects": return <ProjectsTab />;
       case "Resume": return <ResumeTab />;
-      case "Blog": return <BlogTab />;
+      case "Blog": return <BlogTab blogPostId={blogPostId} setBlogPostId={handleSetBlogPost} />;
       case "Contact": return <ContactTab />;
-      default: return <HomeTab setActiveTab={setActiveTab} />;
+      default: return <HomeTab setActiveTab={handleSetActiveTab} />;
     }
   };
 
   return (
     <>
-      <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
       <style>{`
         @media (max-width: 768px) {
           .nav-tabs-desktop { display: none !important; }
@@ -865,9 +899,9 @@ export default function Portfolio() {
         }
       `}</style>
       <div style={{ minHeight: "100vh", background: COLORS.bg }}>
-        <NavBar activeTab={activeTab} setActiveTab={setActiveTab} />
+        <NavBar activeTab={activeTab} setActiveTab={handleSetActiveTab} />
         <main>
-          <TabTransition tabKey={activeTab}>
+          <TabTransition tabKey={activeTab + (blogPostId || "")}>
             {renderTab()}
           </TabTransition>
         </main>
