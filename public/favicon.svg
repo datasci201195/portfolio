@@ -1,4 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="6" fill="#6B2D3E"/>
-  <text x="16" y="22" text-anchor="middle" font-family="Georgia, serif" font-size="16" font-weight="bold" fill="#FFFFFF">RP</text>
+  <g fill="#fff" fill-rule="evenodd">
+    <path d="M2.5 8h6.7c3.8 0 6 1.7 6 4.5 0 2.1-1.3 3.6-3.6 4.3l3.8 5.7 1 .2V24h-4l-4.3-6.8H7.4v5.1l1.7.4V24H2.5v-1.3l1.5-.4V9.7l-1.5-.4Zm4.9 1.7v5.8h1.4c2 0 3.1-1 3.1-3s-1.1-2.8-3.2-2.8Z"/>
+    <path d="M17 8h6.6c4 0 6.2 1.8 6.2 5 0 3.3-2.5 5.1-6.5 5.1h-1.4v4.2l2.1.4V24h-7v-1.3l1.5-.4V9.7L17 9.3Zm4.9 1.7v6.7h1.3c2.1 0 3.2-1.1 3.2-3.4 0-2.2-1-3.3-3.1-3.3Z"/>
+  </g>
 </svg>
