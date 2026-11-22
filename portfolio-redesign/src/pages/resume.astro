@@ -1,0 +1,14 @@
+---
+import Page from '../layouts/Page.astro';
+---
+<Page title="Résumé" section="resume" description="Preview Rupesh Patel’s one-page data engineering résumé or download the PDF.">
+  <section class="resume-page" aria-labelledby="resume-heading">
+    <header class="resume-head">
+      <div><h1 id="resume-heading">Résumé</h1><p>Rupesh Patel · Data Engineer</p></div>
+      <div class="resume-actions"><a href="/resume.pdf" target="_blank" rel="noopener">Open PDF</a><a class="download" href="/resume.pdf" download="Rupesh-Patel-Resume.pdf">Download PDF</a></div>
+    </header>
+    <div class="resume-sheet">
+      <object class="pdf-reader" data="/resume.pdf" type="application/pdf" aria-label="Rupesh Patel’s résumé PDF"><img src="/resume-page.webp" alt="Preview of Rupesh Patel’s one-page résumé" width="1224" height="1584" /></object>
+      <a class="mobile-sheet" href="/resume.pdf" aria-label="Open the full-size résumé PDF"><img src="/resume-page.webp" alt="One-page résumé for Rupesh Patel. Open the PDF for selectable text and full-size reading." width="1224" height="1584" /></a></div>
+  </section>
+</Page>

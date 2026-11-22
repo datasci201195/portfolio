@@ -1,0 +1,40 @@
+---
+import Page from '../layouts/Page.astro';
+import ProfileLinks from '../components/ProfileLinks.astro';
+import Entries from '../components/Entries.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import { latestWriting, selectedWork } from '../entries';
+const work = (await selectedWork()).filter(entry => entry.data.featured);
+const writing = (await latestWriting()).slice(0, 2);
+---
+<Page title="Rupesh Patel" section="home" description="Rupesh Patel is a Microsoft Fabric data engineer in Vancouver and a Master of Data Science student at UBC. Explore his data engineering projects and writing.">
+  <section class="hero" aria-labelledby="intro">
+    <div class="portrait"><img src="/rupesh-studio.jpg" alt="Rupesh Patel in a navy suit" width="1057" height="1480" /></div>
+    <div class="intro">
+      <h1 id="intro">Rupesh Patel, <span>MDS student</span></h1>
+      <div class="bio">
+        <p>I’m a Microsoft Fabric data engineer in Vancouver, where I’m pursuing a Master of Data Science at UBC. I build pipelines that bring data from operational systems into reporting models that analysts can use.</p>
+        <p>At Agriculture Financial Services Corporation, I built a model that tracked changes to roughly 154,000 accounts over time. I also set up Git integration and deployment pipelines across 20 Fabric workspaces.</p>
+        <p>Earlier, I built daily reporting pipelines for ServiceOttawa and automated nightly SQL Server loads at Davies North America, cutting their run time by 30%.</p>
+      </div>
+      <ProfileLinks items={['github', 'linkedin', 'resume', 'email']} />
+    </div>
+  </section>
+  <section class="shelf" aria-labelledby="skills-heading">
+    <div class="shelf-side"><h2 id="skills-heading">Technical skills</h2></div>
+    <dl class="skills">
+      <div><dt>Data platforms</dt><dd>Microsoft Fabric, Azure Databricks, Delta Lake, SQL Server, Oracle</dd></div>
+      <div><dt>Languages</dt><dd>Python, SQL, T-SQL, PySpark, R</dd></div>
+      <div><dt>Pipelines and modeling</dt><dd>Azure Data Factory, IBM DataStage, incremental loads, star schemas, slowly changing dimensions</dd></div>
+      <div><dt>Governance and delivery</dt><dd>Microsoft Purview, Power BI, Git, Azure DevOps, CI/CD</dd></div>
+    </dl>
+  </section>
+  <section class="work-shelf" aria-labelledby="work-heading">
+    <div class="work-heading"><h2 id="work-heading">Selected work</h2><a class="quiet-link" href="/work/">All projects</a></div>
+    <ProjectGrid entries={work} heading="h3" />
+  </section>
+  <section class="shelf" aria-labelledby="writing-heading">
+    <div class="shelf-side"><h2 id="writing-heading">Latest writing</h2><a class="quiet-link" href="/writing/">All articles</a></div>
+    <Entries entries={writing} />
+  </section>
+</Page>

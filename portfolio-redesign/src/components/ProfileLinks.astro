@@ -1,0 +1,13 @@
+---
+import Icon from './Icon.astro';
+import { links } from '../profile';
+interface Props { items: (keyof typeof links)[]; }
+const { items } = Astro.props;
+---
+<div class="profile-links">
+  {items.map(key => (
+    <a href={links[key].href} aria-label={links[key].label} title={links[key].label}>
+      <Icon name={key} />
+    </a>
+  ))}
+</div>

@@ -1,0 +1,27 @@
+---
+import Page from '../layouts/Page.astro';
+const roles = [
+  { employer: 'Agriculture Financial Services Corporation', role: 'Data Engineer', dates: 'Feb 2026 – Aug 2026', text: 'I maintained a Microsoft Fabric platform ingesting data from Oracle and Salesforce nCino. I built a reusable Oracle ingestion pipeline, restored coverage of compound Salesforce fields, and modeled point-in-time account history. I also rolled out Git integration and deployment pipelines across 20 Fabric workspaces.', tools: 'Microsoft Fabric, PySpark, Spark SQL, Oracle, Salesforce, Azure DevOps', link: '/work/oracle-ingestion/', linkLabel: 'Oracle ingestion case study' },
+  { employer: 'Davies North America', role: 'Data Engineer', dates: 'Oct 2025 – Feb 2026', text: 'I built T-SQL pipelines and automated nightly loads and report refreshes with SQL Server Agent. Query optimization and automation reduced load time by 30%. I also brought four sources into a Fabric Lakehouse for reporting.', tools: 'SQL Server, T-SQL, SQL Server Agent, Microsoft Fabric' },
+  { employer: 'City of Ottawa', role: 'Intermediate Data Engineer', dates: 'Sep 2021 – Mar 2025', text: 'I built scheduled loads for the ServiceOttawa reporting data mart and worked with teammates on historical loads for 166 tables in the Social Assistance Management System. My work also included departmental data catalogs and a Fabric reporting solution for security oversight.', tools: 'Microsoft Fabric, Azure Data Factory, IBM DataStage, SQL, Power BI', link: '/work/serviceottawa/', linkLabel: 'ServiceOttawa case study' },
+  { employer: 'Royal Canadian Mounted Police', role: 'Capstone project', dates: 'May 2021 – Aug 2021', text: 'I built a proof of concept for employee appraisal reporting, organizing spreadsheet data into a relational model and delivering four reporting outputs for HR stakeholders.', tools: 'Python, SQL, R, dimensional modeling' }
+];
+---
+<Page title="Experience" section="experience" description="Rupesh Patel’s experience in public-sector, financial services, and insurance data engineering, and his education at UBC.">
+  <header class="page-head"><h1>Experience</h1><p>Data engineering across financial services, insurance, and municipal reporting.</p><a class="quiet-link" href="/resume/">Preview résumé</a></header>
+  <ol class="timeline" aria-label="Work experience, most recent first" role="list">
+    {roles.map(job => (
+      <li>
+        <p class="timeline-date">{job.dates}</p>
+        <div class="timeline-position">
+          <p class="entry-meta">{job.role}</p>
+          <h2>{job.employer}</h2>
+          <p>{job.text}</p>
+          <p class="tools"><strong>Tools</strong> · {job.tools}</p>
+          {job.link && <a class="quiet-link" href={job.link}>{job.linkLabel}</a>}
+        </div>
+      </li>
+    ))}
+  </ol>
+  <section class="job"><h2>Education</h2><div><h3>University of British Columbia</h3><p>Master of Data Science · Vancouver · In progress</p><h3>Dharmsinh Desai University</h3><p>Bachelor of Technology in Engineering · 2017</p></div></section>
+</Page>

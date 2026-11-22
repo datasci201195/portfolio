@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { entries: CollectionEntry<'work'>[]; heading: 'h2' | 'h3'; showTools?: boolean; }
+const { entries, heading: Heading, showTools = true } = Astro.props;
+---
+<div class="project-grid">
+  {entries.map(({ id, data }) => (
+    <article class="project-card">
+      <p class="entry-meta">{data.organization}</p>
+      <Heading class="project-title"><a href={'/work/' + id + '/'}>{data.title}</a></Heading>
+      <p class="project-summary">{data.summary}</p>
+      {showTools && <p class="project-tools">{data.tools.join(' · ')}</p>}
+      {data.repository && <a class="project-repo" href={data.repository}>View on GitHub<span aria-hidden="true"> ↗</span></a>}
+    </article>
+  ))}
+</div>
