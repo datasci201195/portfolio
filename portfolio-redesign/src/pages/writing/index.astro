@@ -1,0 +1,10 @@
+---
+import Page from '../../layouts/Page.astro';
+import Entries from '../../components/Entries.astro';
+import { latestWriting } from '../../entries';
+const entries = await latestWriting();
+---
+<Page title="Writing" section="writing" description="Rupesh Patel’s practical notes on data engineering, historical models, and data quality.">
+  <header class="page-head"><h1>Writing</h1><p>Notes from working with data, one engineering question at a time.</p></header>
+  <div class="index-list"><Entries entries={entries} /></div>
+</Page>

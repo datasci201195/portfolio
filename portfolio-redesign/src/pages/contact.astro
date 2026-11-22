@@ -1,0 +1,28 @@
+---
+import Page from '../layouts/Page.astro';
+import Icon from '../components/Icon.astro';
+import { links } from '../profile';
+const channels = ['email', 'phone', 'linkedin', 'github'] as const;
+---
+<Page title="Contact" section="contact" description="Get in touch with Rupesh Patel, a Microsoft Fabric data engineer based in Vancouver, BC.">
+  <div class="contact-page">
+    <header class="page-head contact-head">
+      <h1>Let’s connect</h1>
+      <p>I’m a Microsoft Fabric data engineer based in Vancouver. If you have a role in mind, want to talk through a data problem, or have a question about one of my projects, I’d love to hear from you.</p>
+    </header>
+    <div class="contact-grid">
+      {channels.map(key => (
+        <a class="contact-card" href={links[key].href}>
+          <span class={'contact-icon ' + key}><Icon name={key} /></span>
+          <span class="contact-channel"><strong>{links[key].label}</strong><span>{links[key].value}</span></span>
+        </a>
+      ))}
+    </div>
+    <section class="opportunities" aria-labelledby="opportunities-heading">
+      <Icon name="send" />
+      <h2 id="opportunities-heading">Open to opportunities</h2>
+      <p>I’m interested in data engineering roles where I can build Fabric pipelines and reporting models. If your team is hiring, I’d love to learn what you’re working on.</p>
+      <a class="contact-button" href={links.email.href}><Icon name="email" />Get in touch</a>
+    </section>
+  </div>
+</Page>

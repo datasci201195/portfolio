@@ -1,0 +1,46 @@
+---
+import ProfileLinks from '../components/ProfileLinks.astro';
+interface Props { title: string; description: string; section?: string; article?: boolean; }
+const { title, description, section = '', article = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const siteTitle = section === 'home' ? 'Rupesh Patel · Microsoft Fabric Data Engineer' : title + ' · Rupesh Patel';
+const nav = [['Experience', '/experience/', 'experience'], ['Selected work', '/work/', 'work'], ['Writing', '/writing/', 'writing'], ['Résumé', '/resume/', 'resume'], ['Contact', '/contact/', 'contact']];
+---
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{siteTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:type" content={article ? 'article' : 'website'} />
+  <meta property="og:title" content={siteTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={new URL('/rupesh-studio.jpg', Astro.site)} />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg?v=2" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead"><div class="frame mast-inner">
+    <div class="mast-identity">
+      <a class="brand" href="/" aria-label="Rupesh Patel, home">Rupesh Patel</a>
+      <p class="mast-role"><span aria-hidden="true" data-role-typing="">Microsoft Fabric Data Engineer</span><span class="sr-only">Microsoft Fabric Data Engineer and Master of Data Science student at UBC</span></p>
+    </div>
+    <nav aria-label="Main navigation">
+      {nav.map(([label, href, key]) => <a href={href} aria-current={section === key ? 'page' : undefined}>{label}</a>)}
+    </nav>
+  </div><img class="mast-mascot" src="/golden-retriever.webp" alt="Golden retriever wearing rectangular glasses" width="469" height="512" /></header>
+  <script is:inline src="/role-line.js" defer></script>
+  <main id="main" class="frame"><slot /></main>
+  <footer class="site-footer">
+    <div class="frame footer-inner">
+      <p>© {new Date().getUTCFullYear()} Rupesh Patel <span>· Built with care in Vancouver</span></p>
+      <ProfileLinks items={['linkedin', 'github', 'email']} />
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,15 @@
+---
+import { dateLabel } from '../entries';
+import type { latestWriting } from '../entries';
+interface Props { entries: Awaited<ReturnType<typeof latestWriting>>; }
+const { entries } = Astro.props;
+---
+<div class="entries">
+  {entries.map(entry => (
+    <article class="entry">
+      {(entry.topic || entry.date) && <p class="entry-meta">{[entry.topic, entry.date && dateLabel(entry.date)].filter(Boolean).join(' · ')}</p>}
+      <h3><a href={'/writing/' + entry.id + '/'}>{entry.title}</a></h3>
+      {entry.summary && <p class="summary">{entry.summary}</p>}
+    </article>
+  ))}
+</div>
