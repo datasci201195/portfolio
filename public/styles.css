@@ -150,10 +150,11 @@ nav a:hover, nav a[aria-current] { color: var(--wine); text-decoration: underlin
 .resume-actions { display: flex; align-items: center; gap: 1rem; }
 .download { background: var(--wine); color: white; border-radius: 3px; padding: .5rem 1rem; text-decoration: none; }
 .resume-sheet { background: #f4f2ee; border: 1px solid var(--line); }
-.resume-sheet img, .pdf-reader { width: 100%; display: block; }
-.resume-sheet img { height: auto; }
-.pdf-reader { height: min(84vh, 66rem); min-height: 35rem; }
+.pdf-reader { display: block; width: 100%; height: min(84vh, 66rem); min-height: 35rem; }
 .mobile-sheet { display: none; }
+.mobile-sheet canvas { display: block; width: 100%; height: auto; background: var(--paper); }
+.mobile-sheet canvas + canvas { margin-top: .75rem; }
+.resume-preview-status { margin: 0; padding: 1rem; }
 @media (max-width: 720px) {
   .frame { width: calc(100% - 2.5rem); }
   .mast-inner { min-height: auto; flex-direction: column; gap: .9rem; padding: 1.15rem 3.6rem .85rem 0; }
@@ -179,12 +180,14 @@ nav a:hover, nav a[aria-current] { color: var(--wine); text-decoration: underlin
   .shelf-side .quiet-link { margin: 0; }
   .page-head { padding: 2.4rem 0 1.7rem; }
   .job { gap: .6rem; }
-  .pdf-reader { display: none; }
-  .mobile-sheet { display: block; }
   .reading, .index-list { padding-bottom: 2.5rem; }
   .contact-grid { grid-template-columns: 1fr; gap: .75rem; }
   .contact-card { padding: 1rem; }
   .footer-inner { gap: .1rem 1rem; }
+}
+@media (max-width: 720px), (hover: none) and (pointer: coarse) {
+  .pdf-reader { display: none; }
+  .mobile-sheet { display: block; }
 }
 @media print {
   nav, .site-footer, .profile-links, .skip, .back { display: none; }
