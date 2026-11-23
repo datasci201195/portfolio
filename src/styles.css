@@ -1,6 +1,6 @@
-@font-face { font-family: 'DM Serif Display'; src: url('fonts/DMSerifDisplay-Regular.ttf') format('truetype'); font-display: swap; }
-@font-face { font-family: 'Source Sans 3'; src: url('fonts/SourceSans3-Regular.ttf') format('truetype'); font-display: swap; }
-@font-face { font-family: 'Source Sans 3'; src: url('fonts/SourceSans3-SemiBold.ttf') format('truetype'); font-weight: 600 800; font-display: swap; }
+@font-face { font-family: 'DM Serif Display'; src: url('/fonts/DMSerifDisplay-Regular.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Source Sans 3'; src: url('/fonts/SourceSans3-Regular.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Source Sans 3'; src: url('/fonts/SourceSans3-SemiBold.ttf') format('truetype'); font-weight: 600 800; font-display: swap; }
 :root {
   --paper: #fff;
   --ink: #272522;
@@ -24,7 +24,7 @@ a:hover { text-decoration-thickness: 2px; }
 .mast-inner, nav { display: flex; align-items: center; }
 .mast-inner { min-height: 10.2rem; align-items: flex-start; justify-content: space-between; gap: 2rem; padding: 2rem 0 1.4rem; }
 .brand { display: inline-block; font-size: 1.68rem; color: var(--ink); text-decoration: none; }
-.mast-role { font: 1.28rem/1.4 var(--serif); color: #805c45; margin-top: .75rem; min-height: 1.5em; }
+.mast-role { font: 1.28rem/1.4 var(--serif); color: var(--wine); margin-top: .75rem; min-height: 1.5em; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 nav { flex-wrap: wrap; gap: 1.8rem; }
 @media (min-width: 721px) { nav { flex-shrink: 0; } }
@@ -44,6 +44,7 @@ nav a:hover, nav a[aria-current] { color: var(--wine); text-decoration: underlin
 .bio p + p { margin-top: .78em; }
 .profile-links { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: auto; padding-top: 1.4rem; }
 .profile-links a { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; color: var(--muted); border-radius: .35rem; }
+.intro .profile-links a { color: var(--wine); }
 .profile-links a:hover, .profile-links a:focus-visible { color: var(--wine); background: #f6f1f0; }
 .profile-links svg { width: 1.6rem; height: 1.6rem; }
 .entry-meta { color: var(--wine); font-weight: 600; }
@@ -97,9 +98,17 @@ nav a:hover, nav a[aria-current] { color: var(--wine); text-decoration: underlin
 .contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.1rem; }
 .contact-card { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.45rem; background: var(--paper); border: 1px solid var(--line); border-radius: .75rem; color: var(--ink); text-decoration: none; }
 .contact-card:hover, .contact-card:focus-visible { border-color: #b38a93; background: #fcf9fa; }
-.contact-icon { display: grid; place-items: center; flex: 0 0 2.75rem; height: 2.75rem; border-radius: .65rem; color: var(--wine); background: #f5eaed; }
-.contact-icon.linkedin { color: #0a66a2; background: #edf4fa; }
-.contact-icon.github { color: var(--ink); background: #f2f1ef; }
+.contact-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--wine);
+  color: #fffaf5;
+  outline: 1px solid #be939d;
+  outline-offset: -4px;
+}
 .contact-icon svg { width: 1.28rem; height: 1.28rem; }
 .contact-channel { min-width: 0; }
 .contact-channel strong, .contact-channel span { display: block; }

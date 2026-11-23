@@ -13,7 +13,7 @@ const channels = ['email', 'phone', 'linkedin', 'github'] as const;
     <div class="contact-grid">
       {channels.map(key => (
         <a class="contact-card" href={links[key].href}>
-          <span class={'contact-icon ' + key}><Icon name={key} /></span>
+          <span class="contact-icon"><Icon name={key} /></span>
           <span class="contact-channel"><strong>{links[key].label}</strong><span>{links[key].value}</span></span>
         </a>
       ))}
