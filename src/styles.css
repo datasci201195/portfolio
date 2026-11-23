@@ -76,7 +76,8 @@ nav a:hover, nav a[aria-current] { color: var(--wine); text-decoration: underlin
 .project-tools { width: 100%; margin-top: auto; padding-top: .8rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .95rem; }
 .project-repo, .project-resources { margin-top: .6rem; font-size: 1rem; }
 .project-resources { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
-.work-index { max-width: 64rem; margin: 0 auto; padding-bottom: 3.5rem; }
+.index-page { max-width: 64rem; margin-inline: auto; }
+.work-index { padding-bottom: 3.5rem; }
 .work-index .page-head h1 { font-size: clamp(2.45rem, 4.5vw, 3.5rem); }
 .work-index .page-head > p { font-size: 1.2rem; }
 .work-index .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
@@ -189,7 +190,11 @@ nav a:hover, nav a[aria-current] { color: var(--wine); text-decoration: underlin
   .shelf-side .quiet-link { margin: 0; }
   .page-head { padding: 2.4rem 0 1.7rem; }
   .job { gap: .6rem; }
-  .reading, .index-list { padding-bottom: 2.5rem; }
+  .reading { padding: 1.65rem 0 2.5rem; }
+  .reading h1 { font-size: 2.25rem; line-height: 1.12; }
+  .article-head { margin: 1.2rem 0; padding-bottom: 1.15rem; }
+  .standfirst { font-size: 1.2rem; margin-top: .75rem; }
+  .index-list { padding-bottom: 2.5rem; }
   .contact-grid { grid-template-columns: 1fr; gap: .75rem; }
   .contact-card { padding: 1rem; }
   .footer-inner { gap: .1rem 1rem; }

@@ -5,7 +5,7 @@ import { selectedWork } from '../../entries';
 const entries = await selectedWork();
 ---
 <Page title="Selected work" section="work" description="Rupesh Patel’s data engineering case studies and a collaborative machine learning project at UBC.">
-  <div class="work-index">
+  <div class="index-page work-index">
     <header class="page-head"><h1>Selected work</h1><p>Data engineering in practice and projects from my time at UBC.</p></header>
     <ProjectGrid entries={entries} heading="h2" showTools={false} />
   </div>

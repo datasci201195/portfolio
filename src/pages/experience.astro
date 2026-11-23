@@ -8,20 +8,22 @@ const roles = [
 ];
 ---
 <Page title="Experience" section="experience" description="Rupesh Patel’s experience in public-sector, financial services, and insurance data engineering, and his education at UBC.">
-  <header class="page-head"><h1>Experience</h1><p>Data engineering across financial services, insurance, and municipal reporting.</p><a class="quiet-link" href="/resume/">Preview résumé</a></header>
-  <ol class="timeline" aria-label="Work experience, most recent first" role="list">
-    {roles.map(job => (
-      <li>
-        <p class="timeline-date">{job.dates}</p>
-        <div class="timeline-position">
-          <p class="entry-meta">{job.role}</p>
-          <h2>{job.employer}</h2>
-          <p>{job.text}</p>
-          <p class="tools"><strong>Tools</strong> · {job.tools}</p>
-          {job.link && <a class="quiet-link" href={job.link}>{job.linkLabel}</a>}
-        </div>
-      </li>
-    ))}
-  </ol>
-  <section class="job"><h2>Education</h2><div><h3>University of British Columbia</h3><p>Master of Data Science · Vancouver · In progress</p><h3>Dharmsinh Desai University</h3><p>Bachelor of Technology in Engineering · 2017</p></div></section>
+  <div class="index-page">
+    <header class="page-head"><h1>Experience</h1><p>Data engineering across financial services, insurance, and municipal reporting.</p><a class="quiet-link" href="/resume/">Preview résumé</a></header>
+    <ol class="timeline" aria-label="Work experience, most recent first" role="list">
+      {roles.map(job => (
+        <li>
+          <p class="timeline-date">{job.dates}</p>
+          <div class="timeline-position">
+            <p class="entry-meta">{job.role}</p>
+            <h2>{job.employer}</h2>
+            <p>{job.text}</p>
+            <p class="tools"><strong>Tools</strong> · {job.tools}</p>
+            {job.link && <a class="quiet-link" href={job.link}>{job.linkLabel}</a>}
+          </div>
+        </li>
+      ))}
+    </ol>
+    <section class="job"><h2>Education</h2><div><h3>University of British Columbia</h3><p>Master of Data Science · Vancouver · In progress</p><h3>Dharmsinh Desai University</h3><p>Bachelor of Technology in Engineering · 2017</p></div></section>
+  </div>
 </Page>

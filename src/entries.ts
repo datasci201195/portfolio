@@ -3,7 +3,7 @@ import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 
 export async function selectedWork() {
-  return (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+  return (await getCollection('work', entry => !entry.data.draft)).sort((a, b) => a.data.order - b.data.order);
 }
 export async function writingArticle(entry: CollectionEntry<'writing'>) {
   const { Content, remarkPluginFrontmatter } = await render(entry);

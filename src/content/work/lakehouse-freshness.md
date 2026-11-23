@@ -1,6 +1,7 @@
 ---
 title: Checking freshness in a Fabric lakehouse
 organization: Sample project
+draft: true
 summary: Compare source and destination timestamps to spot a stale table after a successful pipeline run.
 tools: [Microsoft Fabric, SQL]
 order: 5

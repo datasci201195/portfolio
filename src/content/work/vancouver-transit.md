@@ -1,6 +1,7 @@
 ---
 title: Exploring Vancouver bus headways
 organization: Sample project
+draft: true
 summary: Compare scheduled and observed gaps between buses on a single route during the morning commute.
 tools: [Python, pandas]
 order: 6

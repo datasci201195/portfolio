@@ -1,8 +1,9 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
+import { selectedWork } from '../../entries';
 import Page from '../../layouts/Page.astro';
 export async function getStaticPaths() {
-  return (await getCollection('work')).map(entry => ({ params: { id: entry.id }, props: { entry } }));
+  return (await selectedWork()).map(entry => ({ params: { id: entry.id }, props: { entry } }));
 }
 const { entry } = Astro.props;
 const { Content } = await render(entry);
