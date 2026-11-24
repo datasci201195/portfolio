@@ -1,14 +1,26 @@
-(() => {
-  const button = document.querySelector('.mast-mascot');
-  if (!button) return;
+const mascot = document.querySelector('.mast-mascot');
+const portrait = mascot.querySelector('img');
+const bark = document.querySelector('#retriever-bark');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let animation;
+bark.volume = 0.35;
 
-  const bark = new Audio();
-  bark.preload = 'none';
-  bark.src = button.dataset.bark;
-  bark.volume = 0.35;
+function tilt() {
+  animation?.cancel();
+  if (reducedMotion.matches) return;
+  animation = portrait.animate([
+    { transform: 'rotate(0deg)' },
+    { transform: 'rotate(-5deg)', offset: 0.45 },
+    { transform: 'rotate(0deg)' },
+  ], { duration: 660, easing: 'ease-in-out' });
+}
 
-  button.addEventListener('click', () => {
-    bark.currentTime = 0;
-    bark.play().catch(() => {});
-  });
-})();
+mascot.addEventListener('pointerenter', event => {
+  if (event.pointerType === 'mouse') tilt();
+});
+
+mascot.addEventListener('click', () => {
+  bark.currentTime = 0;
+  bark.play().catch(() => {});
+  tilt();
+});
