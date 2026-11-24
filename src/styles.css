@@ -30,9 +30,10 @@ nav { flex-wrap: wrap; gap: 1.8rem; }
 @media (min-width: 721px) { nav { flex-shrink: 0; } }
 nav a { font: 1.12rem/1.4 var(--serif); color: var(--muted); text-decoration: none; }
 nav a:hover, nav a[aria-current] { color: var(--wine); text-decoration: underline; }
-.mast-mascot { position: absolute; right: clamp(.8rem, 2.5vw, 3rem); bottom: 0; width: auto; height: 5.4rem; transform-origin: 50% 100%; }
+.mast-mascot { position: absolute; right: clamp(.8rem, 2.5vw, 3rem); bottom: 0; width: auto; height: 5.4rem; padding: 0; border: 0; background: transparent; cursor: pointer; transform-origin: 50% 100%; }
+.mast-mascot img { display: block; height: 100%; width: auto; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .mast-mascot:hover { animation: curious .66s ease-in-out; }
+  .mast-mascot:hover img { transform-origin: bottom center; animation: curious .66s ease-in-out; }
   @keyframes curious { 45% { transform: rotate(-5deg); } }
 }
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(2rem, 5.3vw, 5.2rem); padding: clamp(2.5rem, 4vw, 4rem) 0; }
