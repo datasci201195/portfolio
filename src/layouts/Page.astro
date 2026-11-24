@@ -1,6 +1,5 @@
 ---
 import '../styles.css';
-import barkUrl from '../assets/retriever-bark.mp3?url';
 import ProfileLinks from '../components/ProfileLinks.astro';
 interface Props { title: string; description: string; section?: string; article?: boolean; }
 const { title, description, section = '', article = false } = Astro.props;
@@ -35,10 +34,9 @@ const nav = [['Experience', '/experience/', 'experience'], ['Selected work', '/w
       {nav.map(([label, href, key]) => <a href={href} aria-current={section === key ? 'page' : undefined}>{label}</a>)}
     </nav>
   </div>
-    <button class="mast-mascot" type="button" aria-label="Hear the golden retriever bark">
+    <button class="mast-mascot" type="button" aria-label="Tilt the golden retriever’s head">
       <img src="/golden-retriever.webp" alt="" width="469" height="512" />
     </button>
-    <audio id="retriever-bark" src={barkUrl} preload="none"></audio>
   </header>
   <script>import "../retriever.js";</script>
   <script is:inline src="/role-line.js" defer></script>

@@ -1,9 +1,7 @@
 const mascot = document.querySelector('.mast-mascot');
 const portrait = mascot.querySelector('img');
-const bark = document.querySelector('#retriever-bark');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let animation;
-bark.volume = 0.35;
 
 function tilt() {
   animation?.cancel();
@@ -19,8 +17,4 @@ mascot.addEventListener('pointerenter', event => {
   if (event.pointerType === 'mouse') tilt();
 });
 
-mascot.addEventListener('click', () => {
-  bark.currentTime = 0;
-  bark.play().catch(() => {});
-  tilt();
-});
+mascot.addEventListener('click', tilt);
